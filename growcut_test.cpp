@@ -122,7 +122,7 @@ int main(int argc, char** argv)
     cv::Mat labels;
 
     interactiveLabelDrawing(image, labels);
-    segmentation::growCut(image, labels);
+    segmentation::growCut(image, labels, true);
 
     cv::Mat labels_contour = createContourMask(labels);
     image.setTo(cv::Scalar(0, 0, 255), labels_contour);

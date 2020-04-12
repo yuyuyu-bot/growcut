@@ -13,7 +13,7 @@ endif()
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-file(GLOB SRCS ./*.cpp ./*.hpp)
+file(GLOB srcs ./*.cpp ./*.hpp)
 
-add_executable(growcut_test ${COMMON_SRCS} ${SRCS})
+add_executable(growcut_test ${srcs})
 target_link_libraries(growcut_test ${OpenCV_LIBS})

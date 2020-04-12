@@ -4,6 +4,8 @@ static constexpr int dx[8] = { 1, 1, 0, -1, -1, -1, 0, 1 };
 static constexpr int dy[8] = { 0, 1, 1, 1, 0, -1, -1, -1 };
 static constexpr float norm = 1.f / (3 * 255 * 255);
 
+static const std::string process_window_name = "growcut process";
+
 namespace segmentation {
 
 growcutImpl::growcutImpl(int rows, int cols, bool visualize)
@@ -46,7 +48,7 @@ inline void growcutImpl::visLabels()
             v = colors_for_vis_[l - 1];
     });
 
-    cv::imshow("__growcut_process__", labels_vis_);
+    cv::imshow(process_window_name, labels_vis_);
     cv::waitKey(1);
 }
 
@@ -104,7 +106,7 @@ void growcutImpl::apply(const cv::Mat& image, const cv::Mat& label)
     } while (num_updated > 0);
 
     if (visualize_)
-        cv::destroyWindow("__growcut_process__");
+        cv::destroyWindow(process_window_name);
 }
 
 void growcutImpl::getLabels(cv::Mat& label_out) const

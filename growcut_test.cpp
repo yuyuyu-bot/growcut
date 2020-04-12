@@ -115,7 +115,7 @@ int main(int argc, char** argv)
 {
     if (argc != 2) {
         std::cout << "Usage: ./growcut_test.exe [image]" << std::endl;
-        exit(EXIT_FAILURE);
+        exit(-1);
     }
 
     cv::Mat image = cv::imread(argv[1]);
